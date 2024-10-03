@@ -96,7 +96,7 @@ sudo su
 * Now you see I am as `root` user, but in `mirana` user **main** directory
 * I need to type `cd` to move to the **main** directory of `root`
 
-***To login to a specific user again, Enter this command:*** `su -`
+***To login to a specific user again, Enter this command:*** `su - username`
 
 #
 
