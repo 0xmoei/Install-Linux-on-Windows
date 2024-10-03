@@ -13,7 +13,6 @@
 ```
 wsl --install
 ```
-***After the installation completes, you may need to restart your computer.***
 
 3. Restart Your Computer:
   
