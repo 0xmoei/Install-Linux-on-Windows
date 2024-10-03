@@ -76,7 +76,9 @@ docker --version
 ```
 ***Optional: To install more packages you can check my recent [Linux guide](https://github.com/0xmoei/Linux_Node_Guide/blob/main/linux-config.md)***
 
-## Step Optional: Change user
+#
+
+## Optional: Change user
 There are 2 ways to login to ubuntu: 1. You are `root` (administrator with full permissions), or 2. you are an specific `user` with specific permissions
 
 You see by entering `whoami`, I am logged in as user:mirana
@@ -96,7 +98,9 @@ sudo su
 
 ***To login to a specific user again, Enter this command:*** `su -`
 
-### Access Ubuntu directories in Windows explorer
+#
+
+## Access Ubuntu directories in Windows explorer
 To go to your Ubuntu directory using Windows explorer, Enter this in Windows Explorer Addressbar
 ```
 \\wsl$
