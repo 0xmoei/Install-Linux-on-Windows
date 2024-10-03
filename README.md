@@ -80,6 +80,7 @@ docker --version
 There are 2 ways to login to ubuntu: 1. You are `root` (administrator with full permissions), or 2. you are an specific `user` with specific permissions
 
 You see by entering `whoami`, I am logged in as user:mirana
+
 ![image](https://github.com/user-attachments/assets/f91fd950-9752-430e-90e1-a7759121d928)
 
 
