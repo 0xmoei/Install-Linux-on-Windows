@@ -13,6 +13,7 @@
 ```
 wsl --install
 ```
+* It may ask you to choose a username and password
 
 3. Restart Your Computer:
   
