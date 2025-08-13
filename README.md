@@ -121,6 +121,81 @@ To go to your Ubuntu directory using Windows explorer, Enter this in Windows Exp
 
 ***If you don't have access to root directory,  Enter this command in terminal*** `sudo chmod 755 /root`
 
+## Give a user sudo access
+
+If you are not root, switch to root first (from Windows PowerShell):
+```
+wsl -d Ubuntu -u root
+```
+Or from Ubuntu if you already have sudo:
+```
+sudo su
+```
+
+If needed, create the user, then add to the sudo group and set a password:
+```
+id -u <username> 2>/dev/null || adduser <username>
+adduser <username> sudo
+passwd <username>
+
+# verify
+groups <username>
+```
+
+Optional: enable passwordless sudo for the user (use one of the following):
+```
+# safer (uses visudo)
+visudo -f /etc/sudoers.d/<username>
+# add this single line and save
+<username> ALL=(ALL) NOPASSWD:ALL
+```
+Or as commands:
+```
+echo '<username> ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/<username>
+chmod 440 /etc/sudoers.d/<username>
+```
+
+Optional: make the user the default for your Ubuntu WSL distro (run in Windows PowerShell):
+```
+ubuntu.exe config --default-user <username>
+```
+Note: the executable may be named `ubuntu2004.exe`, `ubuntu2204.exe`, etc., depending on your distro.
+
+## Connect to Ubuntu from Windows tools (Cursor, MobaXterm, etc.)
+
+- Cursor
+  - Open folder via WSL share: File > Open Folder > enter `\\wsl$\Ubuntu\home\<username>\<project>`
+  - Or install the "Remote - WSL" extension in Cursor, then use Command Palette: "Remote-WSL: New WSL Window" and open your folder inside WSL
+
+- MobaXterm
+  - WSL session: Session > WSL > select your distro (e.g., Ubuntu) > OK
+  - SSH session (optional): install and start SSH inside WSL, then connect from MobaXterm
+```
+sudo apt update && sudo apt install -y openssh-server
+# enable systemd in WSL if not already enabled
+sudo tee /etc/wsl.conf >/dev/null <<'EOF'
+[boot]
+systemd=true
+EOF
+exit
+```
+From Windows PowerShell:
+```
+wsl --shutdown
+```
+Back in Ubuntu:
+```
+sudo systemctl enable --now ssh
+hostname -I  # use this IP in MobaXterm, port 22
+```
+
+- Windows Terminal / PowerShell
+```
+wsl -l -v                 # list distros
+wsl -d Ubuntu             # open Ubuntu
+wsl -d Ubuntu -u <user>   # open as a specific user
+```
+
 
 
 
