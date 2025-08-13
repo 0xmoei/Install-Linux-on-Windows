@@ -85,7 +85,9 @@ docker --version
 #
 
 ## Optional: Change user
-There are 2 ways to login to ubuntu: 1. You are `root` (administrator with full permissions), or 2. you are an specific `user` with specific permissions
+There are 2 ways to login to ubuntu:
+* 1. You are `root` (administrator with full permissions)
+* 2. you are an specific `user` with specific permissions
 
 You see by entering `whoami`, I am logged in as user:mirana
 
